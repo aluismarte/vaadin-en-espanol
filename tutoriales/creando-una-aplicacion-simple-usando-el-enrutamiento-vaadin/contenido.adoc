@@ -46,5 +46,46 @@ Ahora podemos llamar la instancia del `*Router*` y lo usaremos para configurar l
 
 == 2. Configuración básica de las rutas
 
+Ahora es tiempo de configurar nuestra primera ruta. La configuración de ruta asigna la ruta a un https://www.webcomponents.org/introduction[Web Component]. `*Vaadin.Router* recorre las rutas configuradas hasta que encuentra la primera coincidencia, a partir de eso crea una instancia del componente atado a la ruta y la inserta en la salida del enrutador (reemplaza cualquier contenido existente)
+
+El enrutador no obliga a seguir un formato específico para definir los componentes, puede escribir elementos personalizados (Custom elements) en Vanilla, o user cualquier librería que ayude a crearlos. Ejemplo: Polymer, Angular, Vue, SkateJS, Aurelia, etc.
+
+Vamos a crear un componente web de vanilla para la vista de inicio. Tenga en cuenta el guión en el nombre de la etiqueta, es requerido por el estandar.
+
+[source,javascript]
+----
+// Extend an HTMLElement or another custom element
+class HomeView extends HTMLElement {
+	// This is called when our element is attached to the DOM
+	connectedCallback() {
+		this.innerHTML = `<h1>Welcome home!</h1>`;
+	}
+}
+// Tell the browser to associate the '<home-view>' tag with HomeView class
+customElements.define('home-view', HomeView);
+----
+
+y luego le diremos al visualizador que el componente `*<home-view>*` será la ruta raíz usando el método `*setRoutes*`:
+
+[source,javascript]
+----
+router.setRoutes([
+  {path: '/', component: 'home-view'},
+]);
+----
+
+¡Eso es! Ahora, podemos iniciar un servidor de desarrollo y abrir la página en el navegador. Tenga en cuenta que los componentes web funcionan de forma nativa en las últimas versiones de Chrome y Safari.
+
+Para otros navegadores, deberá instalar el polyfill y agregar el script a la página. El polyfill utiliza la detección de características y solo carga los scripts necesarios para que las características que faltan funcionen.
+
+== 3. Enrutamiento de errores
+
+== 4. Parámetros en las rutas
+
+== 5. Redireccionamiento incondicional
+
+== 6. Emparejamiento ambiguo
+
+
 
 
