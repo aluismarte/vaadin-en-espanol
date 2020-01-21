@@ -1,0 +1,36 @@
+= Creando una aplicación simple usando enrutamiento en Vaadin
+
+_Traducido del https://vaadin.com/learn/tutorials/vaadin-router[original en Inglés]._
+
+Nosotros no vamos a asumir ninguna herramienta, la aplicación incluye todo lo necesario para correr y ejecutarse en cualquier navegador
+
+== 1. Configuración del proyecto
+
+Primero vamos a crear el .`*index.html*`, vamos a adicionar unas etiquetas e incluir unos scripts
+
+.`*index.html*`
+[source,html]
+----
+<base href="/">
+
+<!-- Include the Vaadin.Router library.
+     Browsers automatically pick the best of the two options below. -->
+<script nomodule src="https://unpkg.com/@vaadin/router/dist/vaadin-router.umd.js"></script>
+<script type="module" src="https://unpkg.com/@vaadin/router"></script>
+
+<nav>
+  <!-- By default Vaadin.Router intercepts all anchor clicks and
+       uses them for in-app navigation -->
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+</nav>
+
+<main id="outlet">
+  <!-- Here Vaadin.Router inserts the current page content -->
+</main>
+
+<script src="app.js"></script>
+---- 
+
+
+
