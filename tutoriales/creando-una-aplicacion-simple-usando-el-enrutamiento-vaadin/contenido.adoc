@@ -6,7 +6,7 @@ Nosotros no vamos a asumir ninguna herramienta, la aplicación incluye todo lo n
 
 == 1. Configuración del proyecto
 
-Primero vamos a crear el .`*index.html*`, vamos a adicionar unas etiquetas e incluir unos scripts
+Primero vamos a crear el `*index.html*`, vamos a adicionar unas etiquetas e incluir unos scripts
 
 .`*index.html*`
 [source,html]
@@ -31,6 +31,20 @@ Primero vamos a crear el .`*index.html*`, vamos a adicionar unas etiquetas e inc
 
 <script src="app.js"></script>
 ---- 
+
+.`*app.js*`
+[source,javascript]
+----
+const {Router} = window.Vaadin;
+
+// setup a Router instance
+const outlet = document.getElementById('outlet');
+const router = new Router(outlet);
+---- 
+
+Ahora podemos llamar la instancia del `*Router*` y lo usaremos para configurar las rutas de nuestra aplicación. 
+
+== 2. Configuración básica de las rutas
 
 
 
